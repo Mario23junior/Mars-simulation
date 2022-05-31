@@ -23,6 +23,7 @@ public class MainMars extends Application{
 		Scene scene = new Scene(group,WIDTH,HEIGHT);
 		
 		sphere.translateXProperty().set(WIDTH / 2);
+		sphere.translateYProperty().set(HEIGHT / 2);
 		
 		primaryStage.setTitle("Planeta Mars");
 		primaryStage.setScene(scene);
