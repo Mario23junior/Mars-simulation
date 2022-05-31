@@ -45,6 +45,8 @@ public class MainMars extends Application{
 			case B:
 				 sphere.translateZProperty().set(sphere.getTranslateZ() - 100);
 				 break;
+				default:
+					break;
 	    	}
 		});
 		
