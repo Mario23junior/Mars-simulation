@@ -3,7 +3,9 @@ package com.project.mars;
 
 
 import javafx.application.Application;
+import javafx.scene.Camera;
 import javafx.scene.Group;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -22,9 +24,13 @@ public class MainMars extends Application{
 		
 		Group group = new Group();
 		group.getChildren().add(sphere);
+				
 		
+		Camera camera = new PerspectiveCamera();
 		Scene scene = new Scene(group,WIDTH,HEIGHT);
 		scene.setFill(Color.SILVER);
+		scene.setCamera(camera);
+
 		
 		sphere.translateXProperty().set(WIDTH / 2);
 		sphere.translateYProperty().set(HEIGHT / 2);
@@ -33,10 +39,10 @@ public class MainMars extends Application{
 			switch (event.getCode()) {
 				
 			case A:
-				 sphere.translateZProperty().set(sphere.getTranslateZ() + 10);
+				 sphere.translateZProperty().set(sphere.getTranslateZ() + 100);
 				 
 			case B:
-				 sphere.translateZProperty().set(sphere.getTranslateZ() - 10);
+				 sphere.translateZProperty().set(sphere.getTranslateZ() - 100);
 	    	}
 		});
 		
