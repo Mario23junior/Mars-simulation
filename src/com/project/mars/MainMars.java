@@ -43,11 +43,11 @@ public class MainMars extends Application{
 			switch (event.getCode()) {
 				
 			case A:
-				camera.translateZProperty().set(camera.getTranslateZ() + 100);
+				camera.translateZProperty().set(camera.getTranslateZ() + 10);
 				 break;
 				 
-			case B:
-				camera.translateZProperty().set(camera.getTranslateZ() - 100);
+			case S:
+				camera.translateZProperty().set(camera.getTranslateZ() - 10);
 				 break;
 				default:
 					break;
@@ -57,7 +57,6 @@ public class MainMars extends Application{
 		primaryStage.setTitle("Planeta Mars");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
 	}
 	
 	public static void main(String[] args) {
