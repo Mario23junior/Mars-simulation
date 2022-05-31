@@ -1,9 +1,12 @@
 package com.project.mars;
 
 
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
@@ -21,9 +24,21 @@ public class MainMars extends Application{
 		group.getChildren().add(sphere);
 		
 		Scene scene = new Scene(group,WIDTH,HEIGHT);
+		scene.setFill(Color.SILVER);
 		
 		sphere.translateXProperty().set(WIDTH / 2);
 		sphere.translateYProperty().set(HEIGHT / 2);
+		
+		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+			switch (event.getCode()) {
+				
+			case A:
+				 sphere.translateZProperty().set(sphere.getTranslateZ() + 10);
+				 
+			case B:
+				 sphere.translateZProperty().set(sphere.getTranslateZ() - 10);
+	    	}
+		});
 		
 		primaryStage.setTitle("Planeta Mars");
 		primaryStage.setScene(scene);
