@@ -26,24 +26,28 @@ public class MainMars extends Application{
 		group.getChildren().add(sphere);
 				
 		
-		Camera camera = new PerspectiveCamera();
+		Camera camera = new PerspectiveCamera(true);
 		Scene scene = new Scene(group,WIDTH,HEIGHT);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
 
 		
-		sphere.translateXProperty().set(WIDTH / 2);
-		sphere.translateYProperty().set(HEIGHT / 2);
+		camera.translateXProperty().set(0);
+		camera.translateYProperty().set(0);
+		camera.translateZProperty().set(-500);
+		
+		camera.setNearClip(1);
+		camera.setFarClip(1000);
 		
 		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			switch (event.getCode()) {
 				
 			case A:
-				 sphere.translateZProperty().set(sphere.getTranslateZ() + 100);
+				camera.translateZProperty().set(camera.getTranslateZ() + 100);
 				 break;
 				 
 			case B:
-				 sphere.translateZProperty().set(sphere.getTranslateZ() - 100);
+				camera.translateZProperty().set(camera.getTranslateZ() - 100);
 				 break;
 				default:
 					break;
