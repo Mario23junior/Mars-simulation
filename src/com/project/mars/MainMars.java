@@ -2,6 +2,7 @@ package com.project.mars;
 
 
 
+import com.project.mars.utils.PrepareAnimation;
 import com.project.mars.utils.SmartGroup;
 import com.project.mars.utils.intMouseControl;
 
@@ -15,28 +16,28 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 public class MainMars extends Application{
 
 	private static final Integer WIDTH = 1400;
-	private static final Integer HEIGHT = 1000;
+	private static final Integer HEIGHT = 800;
+	private final Sphere sphere = new Sphere(258);
 	public static final String IMAGE = "/texture/mars.jpg";
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		Camera camera = new PerspectiveCamera(true);
-		camera.translateXProperty().set(0);
-		camera.translateYProperty().set(0);
-		camera.translateZProperty().set(-1000);
+		Camera camera = new PerspectiveCamera(true); 
 		camera.setNearClip(1);
-		camera.setFarClip(1000);
+		camera.setFarClip(10000);
+		camera.translateZProperty().set(-1000);
 
 		SmartGroup world = new SmartGroup();
 		world.getChildren().add(prepareMars());
 		
-		Scene scene = new Scene(world,WIDTH,HEIGHT);
+		Scene scene = new Scene(world,WIDTH,HEIGHT,true);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
 		
@@ -45,10 +46,13 @@ public class MainMars extends Application{
 		
 		primaryStage.setTitle("Planeta Mars");
 		primaryStage.setScene(scene);
-		primaryStage.show();
+		primaryStage.show();	
 		
+	    PrepareAnimation prepareAnimation = new PrepareAnimation();
+	    prepareAnimation.PrepareAnimationSphere(sphere);
 		
-		
+	    
+	   
 		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			switch (event.getCode()) {
 				
@@ -70,9 +74,9 @@ public class MainMars extends Application{
 		PhongMaterial marsMateria = new PhongMaterial();
 		marsMateria.setDiffuseMap(new Image(getClass().getResourceAsStream(IMAGE)));
  
- 		Sphere sphere = new Sphere(250);
+		sphere.setRotationAxis(Rotate.Y_AXIS);
  		sphere.setMaterial(marsMateria);
- 		return sphere;
+   		return sphere;
 	}
 
 	public static void main(String[] args) {
