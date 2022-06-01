@@ -48,6 +48,7 @@ public class MainMars extends Application{
 		root.getChildren().add(world);
 		root.getChildren().add(prepareImageView());
 		root.getChildren().add(slider);
+ 
  		
 		Scene scene = new Scene(root,WIDTH,HEIGHT,true);
 		scene.setFill(Color.SILVER);
@@ -64,6 +65,7 @@ public class MainMars extends Application{
 	    prepareAnimation.PrepareAnimationSphere(sphere);
 		
 	   
+ 
 		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			switch (event.getCode()) {
 				
