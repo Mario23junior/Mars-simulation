@@ -22,4 +22,8 @@ public class SmartGroup extends Group {
 		this.getTransforms().clear();
 		this.getTransforms().addAll(t);
 	}
+	
+	public static void main(String[] args) {
+		
+	}
 }

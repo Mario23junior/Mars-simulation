@@ -9,8 +9,10 @@ import javafx.scene.Camera;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
@@ -18,7 +20,7 @@ public class MainMars extends Application{
 
 	private static final Integer WIDTH = 1400;
 	private static final Integer HEIGHT = 1000;
-
+	public static final String IMAGE = "/texture/mars.jpg";
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -26,7 +28,7 @@ public class MainMars extends Application{
 		Camera camera = new PerspectiveCamera(true);
 		camera.translateXProperty().set(0);
 		camera.translateYProperty().set(0);
-		camera.translateZProperty().set(-500);
+		camera.translateZProperty().set(-1000);
 		camera.setNearClip(1);
 		camera.setFarClip(1000);
 
@@ -60,7 +62,10 @@ public class MainMars extends Application{
 	}
 	
 	private Node prepareMars() {
+		PhongMaterial marsMateria = new PhongMaterial();
+		marsMateria.setDiffuseMap(new Image(getClass().getResourceAsStream(IMAGE)));
  		Sphere sphere = new Sphere(250);
+ 		sphere.setMaterial(marsMateria);
  		return sphere;
 	}
 
