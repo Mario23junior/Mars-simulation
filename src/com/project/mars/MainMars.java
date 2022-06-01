@@ -8,6 +8,7 @@ import com.project.mars.utils.intMouseControl;
 
 import javafx.application.Application;
 import javafx.scene.Camera;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 
 public class MainMars extends Application{
@@ -38,9 +40,12 @@ public class MainMars extends Application{
 
 		SmartGroup world = new SmartGroup();
 		world.getChildren().add(prepareMars());
-		world.getChildren().add(prepareImageView());
 		
-		Scene scene = new Scene(world,WIDTH,HEIGHT,true);
+		Group root = new Group();
+		root.getChildren().add(world);
+		root.getChildren().add(prepareImageView());
+ 		
+		Scene scene = new Scene(root,WIDTH,HEIGHT,true);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
 		
@@ -86,6 +91,7 @@ public class MainMars extends Application{
 		Image image = new Image(MainMars.class.getResourceAsStream(IMAGE_BACKGROUND));
 		ImageView imageView = new ImageView(image);
 		imageView.setPreserveRatio(true);
+		imageView.getTransforms().add(new Translate(-image.getWidth() / 2, -image.getHeight() / 2, 80));
 		return imageView;
 	}
 	
