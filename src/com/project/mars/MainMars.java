@@ -47,6 +47,8 @@ public class MainMars extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
+		
+		
 		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			switch (event.getCode()) {
 				
@@ -67,6 +69,7 @@ public class MainMars extends Application{
 	private Node prepareMars() {
 		PhongMaterial marsMateria = new PhongMaterial();
 		marsMateria.setDiffuseMap(new Image(getClass().getResourceAsStream(IMAGE)));
+ 
  		Sphere sphere = new Sphere(250);
  		sphere.setMaterial(marsMateria);
  		return sphere;
