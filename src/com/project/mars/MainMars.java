@@ -35,7 +35,6 @@ public class MainMars extends Application{
 		SmartGroup world = new SmartGroup();
 		world.getChildren().add(prepareMars());
 		
-		
 		Scene scene = new Scene(world,WIDTH,HEIGHT);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
