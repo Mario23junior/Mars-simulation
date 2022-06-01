@@ -2,9 +2,11 @@ package com.project.mars;
 
 
 
+import com.project.mars.utils.SmartGroup;
+
 import javafx.application.Application;
 import javafx.scene.Camera;
-import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -29,9 +31,10 @@ public class MainMars extends Application{
 		camera.setFarClip(1000);
 
 		SmartGroup world = new SmartGroup();
+		world.getChildren().add(prepareMars());
 		
 		
-		Scene scene = new Scene(group,WIDTH,HEIGHT);
+		Scene scene = new Scene(world,WIDTH,HEIGHT);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
 		
@@ -56,6 +59,11 @@ public class MainMars extends Application{
 		
 	}
 	
+	private Node prepareMars() {
+ 		Sphere sphere = new Sphere(250);
+ 		return sphere;
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}
