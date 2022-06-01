@@ -7,11 +7,9 @@ import com.project.mars.utils.SmartGroup;
 import com.project.mars.utils.intMouseControl;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Camera;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
