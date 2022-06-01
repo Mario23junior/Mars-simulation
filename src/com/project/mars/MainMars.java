@@ -15,29 +15,29 @@ import javafx.stage.Stage;
 public class MainMars extends Application{
 
 	private static final Integer WIDTH = 1400;
-	private static final Integer HEIGHT = 800;
+	private static final Integer HEIGHT = 1000;
 
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Sphere sphere = new Sphere(50);
-		
-		Group group = new Group();
-		group.getChildren().add(sphere);
-				
 		
 		Camera camera = new PerspectiveCamera(true);
-		Scene scene = new Scene(group,WIDTH,HEIGHT);
-		scene.setFill(Color.SILVER);
-		scene.setCamera(camera);
-
-		
 		camera.translateXProperty().set(0);
 		camera.translateYProperty().set(0);
 		camera.translateZProperty().set(-500);
-		
 		camera.setNearClip(1);
 		camera.setFarClip(1000);
+
+		SmartGroup world = new SmartGroup();
+		
+		
+		Scene scene = new Scene(group,WIDTH,HEIGHT);
+		scene.setFill(Color.SILVER);
+		scene.setCamera(camera);
+		
+		primaryStage.setTitle("Planeta Mars");
+		primaryStage.setScene(scene);
+		primaryStage.show();
 		
 		primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 			switch (event.getCode()) {
@@ -54,9 +54,6 @@ public class MainMars extends Application{
 	    	}
 		});
 		
-		primaryStage.setTitle("Planeta Mars");
-		primaryStage.setScene(scene);
-		primaryStage.show();
 	}
 	
 	public static void main(String[] args) {
