@@ -3,6 +3,7 @@ package com.project.mars;
 
 
 import com.project.mars.utils.SmartGroup;
+import com.project.mars.utils.intMouseControl;
 
 import javafx.application.Application;
 import javafx.scene.Camera;
@@ -38,6 +39,9 @@ public class MainMars extends Application{
 		Scene scene = new Scene(world,WIDTH,HEIGHT);
 		scene.setFill(Color.SILVER);
 		scene.setCamera(camera);
+		
+		intMouseControl mouseContro = new intMouseControl();
+		mouseContro.intMouseControls(world, scene, primaryStage);
 		
 		primaryStage.setTitle("Planeta Mars");
 		primaryStage.setScene(scene);
