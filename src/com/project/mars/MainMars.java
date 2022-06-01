@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -25,7 +26,8 @@ public class MainMars extends Application{
 	private static final Integer HEIGHT = 800;
 	private final Sphere sphere = new Sphere(258);
 	public static final String IMAGE = "/texture/mars.jpg";
-	
+	public static final String IMAGE_BACKGROUND = "/texture/back.jpg";
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -36,6 +38,7 @@ public class MainMars extends Application{
 
 		SmartGroup world = new SmartGroup();
 		world.getChildren().add(prepareMars());
+		world.getChildren().add(prepareImageView());
 		
 		Scene scene = new Scene(world,WIDTH,HEIGHT,true);
 		scene.setFill(Color.SILVER);
@@ -79,6 +82,13 @@ public class MainMars extends Application{
    		return sphere;
 	}
 
+	private ImageView prepareImageView() {
+		Image image = new Image(MainMars.class.getResourceAsStream(IMAGE_BACKGROUND));
+		ImageView imageView = new ImageView(image);
+		imageView.setPreserveRatio(true);
+		return imageView;
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -9,7 +9,7 @@ public class PrepareAnimation {
 		AnimationTimer timer = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
- 				sphere.rotateProperty().set(sphere.getRotate() + 0.3);
+ 				sphere.rotateProperty().set(sphere.getRotate() + 0.1);
  			}
 		};
 		timer.start();
