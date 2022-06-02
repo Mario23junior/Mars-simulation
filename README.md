@@ -1,4 +1,4 @@
-<p align="center"><img src="/video/Mars-Rotation.mp4" height="500" width="500"></p>
+<p align="center"><img src="fundo/Mars-Rotation.gif" height="500" width="900"></p>
 
 <h1 align="center">Mars experimento 3D</h1>
 
